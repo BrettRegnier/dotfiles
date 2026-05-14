@@ -22,3 +22,7 @@ ln -s "$DOTFILES/tmux" ~/.config/tmux
 #### hypr ####
 rm -rf ~/.config/hypr
 ln -s "$DOTFILES/hypr" ~/.config/hypr
+
+#### waybar ####
+rm -rf ~/.config/waybar
+ln -s "$DOTFILES/waybar" ~/.config/waybar
