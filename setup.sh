@@ -26,3 +26,7 @@ ln -s "$DOTFILES/hypr" ~/.config/hypr
 #### waybar ####
 rm -rf ~/.config/waybar
 ln -s "$DOTFILES/waybar" ~/.config/waybar
+
+#### mako ####
+rm -rf ~/.config/mako
+ln -s "$DOTFILES/mako" ~/.config/mako
