@@ -1,1 +1,1 @@
-sudo pacman -Syu alacritty hyprshot hyprpaper waybar networkmanager nvim ghostty tmux
+sudo pacman -Syu alacritty hyprshot hyprpaper waybar networkmanager nvim ghostty tmux brightnessctl
