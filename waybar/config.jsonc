@@ -71,12 +71,12 @@
     },
 
     "memory": {
-        "format": "\uEFC5 {}%",
+        "format": "\uEFC5  {}%",
         "interval": 5
     },
 
     "network": {
-        "format-wifi": "\uf1eb {essid}",
+        "format-wifi": "\uf1eb  {essid} - {ipaddr}",
         "format-ethernet": "\uEB50 {ipaddr}",
         "format-disconnected": "\uf127 Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
