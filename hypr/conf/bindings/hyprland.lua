@@ -4,15 +4,56 @@ local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 
 local num_workspaces_per_monitor = 3
 
-local workspace_selector = function(key)
-	return 1
+local function setup_workspaces()
+    local monitors = hl.get_monitors()
+    if #monitors == 1 then
+        return
+    end
+
+    for i = #monitors, 1, -1 do
+        local monitor = monitors[i]
+        local workspace = monitor.id * num_workspaces_per_monitor + 1
+
+
+        hl.dispatch(hl.dsp.focus({ monitor = monitor.id }))
+        hl.dispatch(hl.dsp.focus({
+            workspace = workspace,
+        }))
+
+        if i ~= 1 then
+            hl.dispatch(hl.dsp.workspace.move({ workspace = monitor.id + 1, monitor = 0 }))
+        end
+    end
 end
 
--- Probably doesn't need a function
-local workspace_binder = function()
-	for i = 1, num_workspaces_per_monitor do
-		hl.bind(main_mod .. " + " .. i, hl.dsp.focus({ workspace = workspace_selector(i) }))
-	end
+setup_workspaces();
+
+for i = 1, num_workspaces_per_monitor do
+    hl.bind(main_mod .. " + " .. i, function()
+        local monitor = hl.get_active_monitor()
+        local id = 0
+        if monitor == nil then
+            id = 0
+        else
+            id = monitor.id
+        end
+
+        local workspace = id * num_workspaces_per_monitor + i
+        hl.dispatch(hl.dsp.focus({ workspace = workspace }))
+    end)
+
+    hl.bind(main_mod .. " + SHIFT + " .. i, function()
+        local monitor = hl.get_active_monitor()
+        local id = 0
+        if monitor == nil then
+            id = 0
+        else
+            id = monitor.id
+        end
+
+        local workspace = id * num_workspaces_per_monitor + i
+        hl.dispatch(hl.dsp.window.move({ workspace = workspace }))
+    end)
 end
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
@@ -22,8 +63,8 @@ hl.bind(main_mod .. " + ALT + SHIFT + S", hl.dsp.exec_cmd(programs.screenshot))
 local closeWindowBind = hl.bind(main_mod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(
-	main_mod .. " + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+    main_mod .. " + M",
+    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(programs.file_manager))
 hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -39,11 +80,11 @@ hl.bind(main_mod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with main_mod + [0-9]
 -- Move active window to a workspace with main_mod + SHIFT + [0-9]
-for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-end
+-- for i = 1, 10 do
+--     local key = i % 10 -- 10 maps to key 0
+--     hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+--     hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+-- end
 
 -- Example special workspace (scratchpad)
 hl.bind(main_mod .. " + S", hl.dsp.workspace.toggle_special("magic"))

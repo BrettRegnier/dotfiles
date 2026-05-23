@@ -9,28 +9,39 @@
     "modules-right": ["pulseaudio", "cpu", "memory", "network", "battery", "tray"],
 
     "hyprland/workspaces": {
-        "format": "{id}",
+        "all-outputs": false,
+        "active-only": false,
         "on-click": "activate",
-        "all-outputs": true,
-        "show-special": false,
+        "show-special": true,
         "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
+            "*": 3
         },
+        "format": "{icon}",
         "format-icons": {
             "active": "\u25cf",
             "occupied": "\u25cb",
             "default": "\u00b7",
             "urgent": "\u25c6"
-        }
+        },
+        "window-rewrite-default": "\uf2d0",
+        "window-rewrite": {
+            "class<firefox>":          "\uf269",
+            "class<chromium>":         "\ue743",
+            "class<kitty>":            "\uf489",
+            "class<alacritty>":        "\uf489",
+            "class<foot>":             "\uf489",
+            "class<nvim>":             "\ue7c5",
+            "class<neovim>":           "\ue7c5",
+            "class<code>":             "\ue70c",
+            "class<code-oss>":         "\ue70c",
+            "class<thunar>":           "\uf07b",
+            "class<nautilus>":         "\uf07b",
+            "class<discord>":          "\ufb6e",
+            "class<spotify>":          "\uf1bc",
+            "class<steam>":            "\uf1b6",
+            "title<.*youtube.*>":      "\uf167",
+            "title<.*github.*>":       "\uf09b"
+        },
     },
 
     "hyprland/window": {
