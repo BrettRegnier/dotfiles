@@ -2,31 +2,8 @@ local programs = require("conf.programs")
 
 local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 
+-- TODO make globals file
 local num_workspaces_per_monitor = 3
-
-local function setup_workspaces()
-    local monitors = hl.get_monitors()
-    if #monitors == 1 then
-        return
-    end
-
-    for i = #monitors, 1, -1 do
-        local monitor = monitors[i]
-        local workspace = monitor.id * num_workspaces_per_monitor + 1
-
-
-        hl.dispatch(hl.dsp.focus({ monitor = monitor.id }))
-        hl.dispatch(hl.dsp.focus({
-            workspace = workspace,
-        }))
-
-        if i ~= 1 then
-            hl.dispatch(hl.dsp.workspace.move({ workspace = monitor.id + 1, monitor = 0 }))
-        end
-    end
-end
-
-setup_workspaces();
 
 for i = 1, num_workspaces_per_monitor do
     hl.bind(main_mod .. " + " .. i, function()
