@@ -116,6 +116,10 @@ window#waybar {
     color: #6c7086;
 }
 
+#pulseaudio .icon {
+    padding-right: 10px;
+}
+
 #tray {
     background-color: rgba(255, 255, 255, 0.05);
 }
