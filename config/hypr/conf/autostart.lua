@@ -25,6 +25,13 @@ local function setup_workspaces()
     end
 end
 
+local function launch_socials_music()
+    hl.dispatch(hl.dsp.exec_cmd("webex", { workspace = "3 silent" }))
+    hl.dispatch(hl.dsp.exec_cmd("spotify-launcher", { workspace = "3 silent" }))
+    hl.dispatch(hl.dsp.exec_cmd("discord", { workspace = "3 silent" }))
+    hl.dispatch(hl.dsp.exec_cmd("signal-desktop --password-store=kwallet6", { workspace = "3 silent" }))
+end
+
 
 hl.on("hyprland.start", function()
     hl.exec_cmd(programs.notifications)
@@ -35,5 +42,11 @@ hl.on("hyprland.start", function()
 
     hl.timer(function()
         setup_workspaces();
+        hl.timer(function()
+            launch_socials_music();
+        end, { timeout = 50, type = "oneshot" })
     end, { timeout = 50, type = "oneshot" })
 end)
+
+
+return { launch_socials_music = launch_socials_music }

@@ -1,4 +1,5 @@
 local programs = require("conf.programs")
+local autostart = require("conf.autostart")
 
 local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 
@@ -29,7 +30,7 @@ for i = 1, num_workspaces_per_monitor do
         end
 
         local workspace = id * num_workspaces_per_monitor + i
-        hl.dispatch(hl.dsp.window.move({ workspace = workspace }))
+        hl.dispatch(hl.dsp.window.move({ workspace = workspace, follow = false }))
     end)
 end
 
@@ -64,8 +65,8 @@ hl.bind(main_mod .. " + J", hl.dsp.focus({ direction = "down" }))
 -- end
 
 -- Example special workspace (scratchpad)
-hl.bind(main_mod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(main_mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(main_mod .. " + SPACE", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(main_mod .. " + SHIFT + SPACE", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with main_mod + scroll
 hl.bind(main_mod .. " + SHIFT + J", hl.dsp.focus({ workspace = "e+1" }))
@@ -76,3 +77,8 @@ hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
 -- Move/resize windows with main_mod + LMB/RMB and dragging
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+hl.bind(main_mod .. " + SHIFT + S", hl.dsp.exec_cmd(programs.screenshot))
+
+-- Open all my work stuff
+hl.bind(main_mod .. " + SHIFT + H", autostart.launch_socials_music)
