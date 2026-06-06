@@ -42,9 +42,9 @@ hl.on("hyprland.start", function()
 
     hl.timer(function()
         setup_workspaces();
-        hl.timer(function()
-            launch_socials_music();
-        end, { timeout = 50, type = "oneshot" })
+        -- hl.timer(function()
+        --     launch_socials_music();
+        -- end, { timeout = 50, type = "oneshot" })
     end, { timeout = 50, type = "oneshot" })
 end)
 
