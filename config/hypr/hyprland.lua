@@ -174,3 +174,9 @@ hl.window_rule({
     move = "20 monitor_h-120",
     float = true,
 })
+
+-- Floating window border change
+hl.window_rule({
+    match = { float = true },
+    border_color = "rgb(AA6F03) rgb(664B00)"
+})
