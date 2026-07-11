@@ -1,7 +1,7 @@
-default-timeout=30000
+default-timeout=3500
 ignore-timeout=0
 anchor=top-right
-margin=12
+margin=24
 width=340
 height=150
 padding=12
@@ -18,19 +18,16 @@ border-color=#333333
 background-color=#1a1a1a
 text-color=#888888
 border-color=#2a2a2a
-default-timeout=15000
 
 [urgency=normal]
 background-color=#1a1a1a
 text-color=#e0e0e0
 border-color=#333333
-default-timeout=30000
 
 [urgency=critical]
 background-color=#2a1a1a
 text-color=#ff6b6b
 border-color=#8b0000
-default-timeout=0
 
 [app-name=Webex]
 default-timeout=30000
