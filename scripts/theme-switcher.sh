@@ -5,8 +5,8 @@ set -euo pipefail
 STATE_FILE="$HOME/.local/state/theme"
 GHOSTTY_THEME_FILE="$HOME/.config/ghostty/theme-selector.conf"
 
-DARK_GHOSTTY_THEME="catppuccin-mocha"
-LIGHT_GHOSTTY_THEME="catppuccin-latte"
+DARK_GHOSTTY_THEME="base16-ashes"
+LIGHT_GHOSTTY_THEME="Catppuccin Latte"
 
 mkdir -p "$(dirname "$STATE_FILE")" "$(dirname "$GHOSTTY_THEME_FILE")"
 
