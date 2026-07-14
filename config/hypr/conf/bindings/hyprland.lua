@@ -48,7 +48,8 @@ hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(programs.file_manager))
 hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + R", hl.dsp.exec_cmd(programs.menu))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
-hl.bind(main_mod .. " + T", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(main_mod .. " + B", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/dotfiles/scripts/theme-switcher.sh"))
 
 -- Move focus with main_mod + arrow keys
 hl.bind(main_mod .. " + H", hl.dsp.focus({ direction = "left" }))

@@ -4,3 +4,7 @@ font-family-italic = JetBrainsMono Nerd Font Mono
 font-family-bold-italic = JetBrainsMono Nerd Font Mono
 font-size = 9.5
 mouse-scroll-multiplier = 0.5
+
+# Should be loaded last, theme colouring
+config-file = ~/.config/ghostty/theme-selector.conf
+

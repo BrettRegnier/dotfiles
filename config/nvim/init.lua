@@ -28,3 +28,4 @@ require("configs/options")
 require("configs/mappings")
 require("custom/entry")
 
+require("custom/theme-selector")

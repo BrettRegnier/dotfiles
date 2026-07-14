@@ -5,9 +5,6 @@ local helpers = require("../custom/helpers")
 local opt = vim.opt
 local g = vim.g
 local api = vim.api
-local bg = vim.api.nvim_get_hl_by_name("Normal", true).background
-
-api.nvim_set_hl(0, "WinSeparator", { fg = helpers.lighten(bg, 0.20) })
 
 opt.number = true
 opt.relativenumber = false
