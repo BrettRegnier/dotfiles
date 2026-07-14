@@ -8,7 +8,6 @@ local M = {
 		event = "VeryLazy",
 	},
 	{
-
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

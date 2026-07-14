@@ -1,6 +1,5 @@
 -- ~/.config/nvim/lua/plugins/colour_scheme.lua
 
-
 local helpers = require("../custom/helpers")
 
 return {
@@ -18,11 +17,9 @@ return {
 				illuminate = true,
 			})
 
-
-			vim.cmd.colorscheme("base16-ashes")
-
-            local bg = vim.api.nvim_get_hl_by_name("Normal", true).background
-            vim.api.nvim_set_hl(0, "WinSeparator", { fg = helpers.lighten(bg, 0.20) })
+			-- vim.cmd.colorscheme("base16-ashes")
+			-- local bg = vim.api.nvim_get_hl_by_name("Normal", true).background
+			-- vim.api.nvim_set_hl(0, "WinSeparator", { fg = helpers.lighten(bg, 0.20) })
 		end,
 	},
 }
