@@ -29,6 +29,22 @@ echo "theme = $GHOSTTY_THEME" > "$GHOSTTY_THEME_FILE"
 # Reload ghostty
 pkill -SIGUSR2 -x ghostty 2>/dev/null || true
 
+# Tell neovim to reload theme
+SOCKET_DIR="$HOME/.cache/nvim/sockets"
+
+if [ -d "$SOCKET_DIR" ] && [ "$(ls -A "$SOCKET_DIR" 2>/dev/null)" ]; then
+  for socket in "$SOCKET_DIR"/nvim_*.pipe; do
+    if [ -e "$socket" ]; then
+      # Sends the command in parallel to all instances instantly
+      nvim --server "$socket" --remote-send "<Cmd>doautocmd User GlobalNotify<CR>" &>/dev/null &
+    fi
+  done
+  wait
+  echo "Notification broadcasted to all Neovim instances."
+else
+  echo "No active Neovim instances found."
+fi
+
 command -v notify-send >/dev/null 2>&1 && notify-send "Theme" "Switched to $NEW_MODE" -t 1500
 
 exit 0
