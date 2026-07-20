@@ -11,8 +11,8 @@ LIGHT_GHOSTTY_THEME="Catppuccin Latte"
 DARK_G_COLOR_SCHEME="prefer-dark"
 LIGHT_G_COLOR_SCHEME="prefer-light"
 
-DARK_GTK_THEME="Adwaita-dark"
-LIGHT_GTK_THEME="Adwaita"
+DARK_GTK_THEME="Adwaita"
+LIGHT_GTK_THEME="Adwaita-light"
 
 DARK_ICON_THEME="Papirus-Dark"
 LIGHT_ICON_THEME="Papirus-Light"
