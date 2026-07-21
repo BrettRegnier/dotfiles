@@ -50,6 +50,7 @@
     },
 
     "clock": {
+        "timezone": "America/Regina",
         "format": "It is {:%A   %F %I:%M%p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
