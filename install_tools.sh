@@ -1,1 +1,15 @@
-sudo pacman -Syu alacritty hyprshot hyprpaper waybar networkmanager nvim ghostty tmux brightnessctl nemo brave-browser zenity mako
+sudo pacman -Syyu \
+    alacritty \
+    hyprshot \
+    hyprpaper \
+    waybar \
+    networkmanager \
+    network-manager-applet \
+    nvim \
+    ghostty \
+    tmux \
+    brightnessctl \
+    nemo \
+    zenity \
+    mako \
+
