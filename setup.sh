@@ -9,3 +9,4 @@ for dir in "$DOTFILES/config"/*/; do
     ln -s "$dir" ~/.config/"$config"
 done
 
+# TODO tailscale setup
