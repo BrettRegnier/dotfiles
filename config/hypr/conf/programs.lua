@@ -7,4 +7,8 @@ return {
     notifications = "mako",
     screenshot = "hyprshot -m region -o %HOME/Pictures/Screenshots",
     browser = "brave-browser",
+    applets = {
+        tailscale = "tailscale systray",
+        nm_applet = "nm-applet --indicator"
+    }
 }

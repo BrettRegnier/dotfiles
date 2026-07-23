@@ -49,7 +49,6 @@ hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + R", hl.dsp.exec_cmd(programs.menu))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind(main_mod .. " + B", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/dotfiles/scripts/theme-switcher.sh"))
 
 -- Move focus with main_mod + arrow keys
 hl.bind(main_mod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -198,3 +197,48 @@ hl.bind("SUPER + ALT + N", function()
     local my_result = get_cmd_output("hyprctl -j monitors | jq '.[] | {name: .name, reserved: .reserved}")
     hl.notification.create({ text = my_result, duration = 1000 })
 end)
+
+hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/dotfiles/scripts/theme-switcher.sh"))
+-- hl.bind(main_mod .. " + T", function()
+-- local HOME = os.getenv("HOME")
+-- STATE_FILE = HOME .. "/.local/state/theme"
+--
+-- GHOSTTY_THEME_FILE = HOME .. "/.config/ghostty/theme-selector.conf"
+--
+-- local theme = "light"
+-- local ghostty_theme = "base16-ashes"
+-- local g_color_theme = "prefer-dark"
+-- local gtk_theme = "Adwaita-dark"
+-- local icon_theme = "Papirus-Dark"
+--
+-- local state_file = io.open(STATE_FILE, "r")
+-- if state_file ~= nil then
+--     theme = state_file:read("*a")
+--     state_file:close()
+-- end
+--
+-- local ghostty_file = assert(io.open(GHOSTTY_THEME_FILE, "w"))
+--
+-- if theme == "dark" then
+--     theme = "light"
+--     ghostty_theme = "Catppuccin Latte"
+--     g_color_theme = "'prefer-light'"
+--     gtk_theme = "'Adwaita'"
+--     icon_theme = "'Papirus-Light'"
+-- else
+--     theme = "dark"
+-- end
+--
+-- ghostty_file:write(ghostty_theme)
+-- ghostty_file:close()
+
+-- hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme " .. g_color_theme)
+-- hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme " .. gtk_theme)
+-- hl.exec_cmd("gsettings set org.gnome.desktop.interface icon-theme " .. icon_theme)
+
+-- hl.dsp.exec_cmd("~/dotfiles/scripts/theme-switcher.sh")
+
+-- state_file = assert(io.open(STATE_FILE, "w"))
+-- state_file:write(theme)
+-- state_file:close()
+-- end)

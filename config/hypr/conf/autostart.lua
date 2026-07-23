@@ -34,8 +34,13 @@ end
 
 
 hl.on("hyprland.start", function()
+    -- TODO on exit
+    -- hl.exec_cmd("pkill -f 'tailscale systray'")
+
     hl.exec_cmd(programs.notifications)
     hl.exec_cmd(programs.wallpaper)
+    hl.exec_cmd(programs.applets.tailscale)
+    hl.exec_cmd(programs.applets.nm_applet)
 
     -- Scripts
     hl.exec_cmd(config_dir .. "../scripts/launch-waybar.sh")
