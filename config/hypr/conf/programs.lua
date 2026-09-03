@@ -5,7 +5,7 @@ return {
     menu = "hyprlauncher",
     wallpaper = "hyprpaper",
     notifications = "mako",
-    screenshot = "hyprshot -m region -o %HOME/Pictures/Screenshots",
+    screenshot = "hyprshot -m region -o ~/Pictures/Screenshots",
     browser = "brave-browser",
     applets = {
         tailscale = "tailscale systray",

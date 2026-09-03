@@ -1,5 +1,7 @@
+<<<<<<< Updated upstream
 sudo pacman -Syyu \
     alacritty \
+    hyprlauncher \
     hyprshot \
     hyprpaper \
     waybar \
@@ -12,4 +14,5 @@ sudo pacman -Syyu \
     nemo \
     zenity \
     mako \
+    inotify-tools \
 
