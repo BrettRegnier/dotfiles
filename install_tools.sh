@@ -1,9 +1,10 @@
-<<<<<<< Updated upstream
 sudo pacman -Syyu \
     alacritty \
     hyprlauncher \
     hyprshot \
     hyprpaper \
+    hyprlock \
+    hypridle \
     waybar \
     networkmanager \
     network-manager-applet \
