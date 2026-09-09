@@ -1,12 +1,10 @@
 local programs = require("conf.programs")
 local autostart = require("conf.autostart")
+local constants = require("constants")
 
 local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 
--- TODO make globals file
-local num_workspaces_per_monitor = 3
-
-for i = 1, num_workspaces_per_monitor do
+for i = 1, constants.NUM_WORKSPACES_PER_MONITOR do
     hl.bind(main_mod .. " + " .. i, function()
         local monitor = hl.get_active_monitor()
         local id = 0
@@ -16,7 +14,7 @@ for i = 1, num_workspaces_per_monitor do
             id = monitor.id
         end
 
-        local workspace = id * num_workspaces_per_monitor + i
+        local workspace = id * constants.NUM_WORKSPACES_PER_MONITOR + i
         hl.dispatch(hl.dsp.focus({ workspace = workspace }))
     end)
 
@@ -29,7 +27,7 @@ for i = 1, num_workspaces_per_monitor do
             id = monitor.id
         end
 
-        local workspace = id * num_workspaces_per_monitor + i
+        local workspace = id * constants.NUM_WORKSPACES_PER_MONITOR + i
         hl.dispatch(hl.dsp.window.move({ workspace = workspace, follow = false }))
     end)
 end

@@ -1,8 +1,8 @@
 local programs = require("conf.programs")
+local constants = require("constants")
 
 local config_dir = debug.getinfo(1, "S").source:match("^@(.+/)")
 
-local num_workspaces_per_monitor = 3
 local function setup_workspaces()
     local monitors = hl.get_monitors()
     if #monitors == 1 then
@@ -11,7 +11,7 @@ local function setup_workspaces()
 
     for i = #monitors, 1, -1 do
         local monitor = monitors[i]
-        local workspace = monitor.id * num_workspaces_per_monitor + 1
+        local workspace = monitor.id * constants.NUM_WORKSPACES_PER_MONITOR + 1
 
 
         hl.dispatch(hl.dsp.focus({ monitor = monitor.id }))
