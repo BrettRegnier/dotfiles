@@ -25,6 +25,8 @@ cd ~/.dotfiles
 
 > ⚠️ **Don't blindly run this.** Read the scripts.
 
+> Note- this is generally for Arch Linux/CachyOS
+
 ---
 
 ## A note on "best practices"
