@@ -1,4 +1,5 @@
 sudo pacman -Syyu \
+    greetd \
     alacritty \
     hyprlauncher \
     hyprshot \
