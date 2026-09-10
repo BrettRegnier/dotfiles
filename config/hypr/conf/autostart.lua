@@ -36,6 +36,10 @@ end
 hl.on("hyprland.start", function()
     -- TODO on exit
     -- hl.exec_cmd("pkill -f 'tailscale systray'")
+    --
+    -- Hypr ecosystem
+    hl.exec_cmd("hyprlock")
+    hl.exec_cmd("hypridle")
 
     hl.exec_cmd(programs.notifications)
     hl.exec_cmd(programs.wallpaper)
