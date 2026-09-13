@@ -11,7 +11,7 @@
     "hyprland/workspaces": {
         "all-outputs": false,
         "active-only": false,
-        "on-click": "activate",
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e\"})",
         "show-special": true,
         "persistent-workspaces": {
             "*": 5
