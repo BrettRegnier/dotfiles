@@ -16,4 +16,4 @@ nemo
 zenity
 mako
 inotify-tools
-
+quickshell
