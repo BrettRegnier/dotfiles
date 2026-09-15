@@ -40,7 +40,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(programs.wallpaper)
 
     -- Hypr ecosystem
-    hl.exec_cmd("hyprlock --grace 5")
+    hl.exec_cmd("hyprlock")
     hl.exec_cmd("hypridle")
 
     hl.exec_cmd(programs.notifications)
