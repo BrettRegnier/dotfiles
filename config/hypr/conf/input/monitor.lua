@@ -1,11 +1,10 @@
-------------------
----- MONITORS ----
-------------------
+local status, _ = pcall(require, "conf.local_monitors")
 
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-	output = "",
-	mode = "highrr",
-	position = "auto",
-	scale = "1",
-})
+if not status then
+    hl.monitor({
+        output = "",
+        mode = "highrr",
+        position = "auto",
+        scale = "1",
+    })
+end
