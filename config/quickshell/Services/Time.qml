@@ -7,7 +7,7 @@ import QtQuick
 Singleton {
     id: root 
     readonly property string time: {
-        Qt.formatDateTime(clock.date, "'Day of our Lord': dddd - yyyy/mm/dd hh:mm ap")
+        Qt.formatDateTime(clock.date, "'Day of our Lord', dddd - yyyy/mm/dd hh:mm ap")
     } 
 
     SystemClock {
