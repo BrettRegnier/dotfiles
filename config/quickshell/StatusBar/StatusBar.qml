@@ -27,17 +27,27 @@ Scope {
                 }
 
                 implicitHeight: 30
+                height: 30
+                implicitWidth: 100
 
                 Workspaces {
                     num_workspaces: 5
                     monitor_num: root.monitor_id
-                    anchors.fill: parent
+                    width: parent.width * (3/8)
+                    height: parent.height
                 }
 
                 ClockWidget {
-                    anchors.centerIn: parent
+                    x: parent.width * (3/8)
+                    width: parent.width * (2/8)
+                    height: parent.height
                 }
 
+                InfoIconsWidget {
+                    x: parent.width * (5/8)
+                    width: parent.width * (3/8)
+                    height: parent.height
+                }
             }
         }
     }

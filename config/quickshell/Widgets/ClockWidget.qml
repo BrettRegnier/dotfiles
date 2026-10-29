@@ -1,7 +1,11 @@
 import QtQuick
 import qs.Services
 
-Text { 
-    text: Time.time
-    color: "#CDD6F4"
+Rectangle {
+    color: "red"
+    Text { 
+        anchors.centerIn: parent
+        text: Time.time
+        color: "#CDD6F4"
+    }
 }
