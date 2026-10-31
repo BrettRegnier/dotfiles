@@ -47,7 +47,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(programs.applets.tailscale)
     hl.exec_cmd(programs.applets.nm_applet)
 
-    hl.exec_cmd(quickshell)
+    hl.exec_cmd(programs.quickshell)
     -- Scripts
     -- hl.exec_cmd(config_dir .. "../scripts/launch-waybar.sh")
 
