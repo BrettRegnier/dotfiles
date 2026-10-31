@@ -1,8 +1,7 @@
 import QtQuick
 import qs.Services
 
-Rectangle {
-    color: "red"
+Item {
     Text { 
         anchors.centerIn: parent
         text: Time.time

@@ -1,10 +1,15 @@
 import QtQuick
 import qs.Services
 
-Rectangle {
-    color: "blue"
+Item {
+    // color: "blue"
 
     Network {
         anchors.verticalCenter: parent.verticalCenter
     }
+
+    SysTray {
+
+    }
+
 }

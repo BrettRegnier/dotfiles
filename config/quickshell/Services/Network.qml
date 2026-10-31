@@ -1,8 +1,9 @@
 import QtQuick
 import Quickshell.Networking
 
-Text {
+Item {
     id: root
+    height: parent.height
 
     // Wired wins, then wifi, else null
     readonly property var activeDevice: {
@@ -19,10 +20,15 @@ Text {
     }
 
     readonly property string label: {
-        if (!activeDevice) return "Disconnected";
-        if (activeDevice.type === DeviceType.Wired) return "Ethernet";
-        return activeWifi ? activeWifi.name : "Wi-Fi";
+        if (!activeDevice) return "\uf127  Disconnected";
+        if (activeDevice.type === DeviceType.Wired) return "\uEB50 " + activeDevice.name;
+        return activeWifi ? "\uf1eb  " + activeWifi.name  : "Wi-Fi";
     }
 
-    Text { text: root.label }
+    Text { 
+        text: root.label 
+        color: "#CDD6F4"
+        font: "JetBrainsMono Nerd Font" 
+        anchors.centerIn: parent
+    }
 }
