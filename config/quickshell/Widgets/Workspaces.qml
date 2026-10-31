@@ -24,7 +24,7 @@ Item {
                 property int workspace_id: index + root.monitor_num * root.num_workspaces + 1
                 property var workspace: Hyprland.workspaces.values.find(ws => ws.id === workspace_id)
                 property bool is_active: workspace != null && workspace.active
-                property int pad: 26           // room around the pill for bolts to reach into
+                property int pad: 26
 
                 width: 45
                 height: 30 

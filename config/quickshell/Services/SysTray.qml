@@ -16,6 +16,7 @@ Row {
         delegate: MouseArea {
             id: trayItem
             required property SystemTrayItem modelData
+
             implicitWidth: 20
             implicitHeight: 20
             acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
@@ -35,10 +36,10 @@ Row {
                 console.log("clicked", modelData.id, "onlyMenu:", modelData.onlyMenu, "hasMenu:", modelData.hasMenu);
                 if (mouse.button === Qt.MiddleButton) {
                     modelData.secondaryActivate();
-                } else if (mouse.button === Qt.LeftButton && !modelData.onlyMenu) {
-                    modelData.activate();
-                } else if (modelData.hasMenu) {
+                } else if (mouse.button === Qt.LeftButton && modelData.hasMenu) {
                     menuAnchor.open();
+                } else if (modelData.onlyMenu) {
+                    modelData.activate();
                 }
             }
 

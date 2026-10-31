@@ -1,9 +1,12 @@
 import QtQuick
 import Quickshell.Networking
 
-Item {
+Rectangle {
     id: root
-    height: parent.height
+    implicitHeight: parent.height
+    width: inside_text.width + 20
+    radius: 5
+    color: "#0dffffff"
 
     // Wired wins, then wifi, else null
     readonly property var activeDevice: {
@@ -26,8 +29,9 @@ Item {
     }
 
     Text { 
+        id: inside_text
         text: root.label 
-        color: "#CDD6F4"
+        color: "#89b4fa"
         font: "JetBrainsMono Nerd Font" 
         anchors.centerIn: parent
     }
