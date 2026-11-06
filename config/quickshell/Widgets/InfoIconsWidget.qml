@@ -18,8 +18,8 @@ Item {
     }
 
 
-    // SysTray {
-    //
-    // }
+    SysTray {
+    
+    }
 
 }
