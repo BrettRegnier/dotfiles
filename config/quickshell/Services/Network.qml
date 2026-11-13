@@ -24,8 +24,8 @@ Rectangle {
 
     readonly property string label: {
         if (!activeDevice) return "\uf127  Disconnected";
-        if (activeDevice.type === DeviceType.Wired) return "\uEB50 " + activeDevice.name;
-        return activeWifi ? "\uf1eb  " + activeWifi.name  : "Wi-Fi";
+        if (activeDevice.type === DeviceType.Wired) return "\uEB50 \u202F" + activeDevice.name;
+        return activeWifi ? "\uf1eb \u202F" + activeWifi.name  : "Wi-Fi";
     }
 
     Text { 

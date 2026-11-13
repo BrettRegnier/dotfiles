@@ -46,7 +46,7 @@ Scope {
                 }
 
                 InfoIconsWidget {
-                    x: workspaces.width + clock_widget.width
+                    x: clock_widget.x + clock_widget.width
                     width: parent.width * 5 * root.step_size
                     height: parent.height
                 }

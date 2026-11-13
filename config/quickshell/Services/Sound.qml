@@ -55,7 +55,7 @@ Rectangle {
                 icon = "\uf028"
             }
 
-            return `${icon}\u202F${vol}%`
+            return `${icon} \u202F${vol}%`
         }
     }
 }

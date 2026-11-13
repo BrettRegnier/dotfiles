@@ -3,49 +3,56 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
 
-Row {
+Rectangle {
+    width: row.implicitWidth + 20
     height: parent.height
-    width: 100
-    id: row
-    anchors.centerIn: parent
-    spacing: 8
+    color: "#0dffffff"
+    radius: 5
 
-    Repeater {
-        model: SystemTray.items   // ObjectModel of SystemTrayItem
+    Row {
+        x: 10
+        height: parent.height
+        id: row
+        spacing: 8
 
-        delegate: MouseArea {
-            id: trayItem
-            required property SystemTrayItem modelData
+        Repeater {
+            model: SystemTray.items   // ObjectModel of SystemTrayItem
 
-            implicitWidth: 20
-            implicitHeight: 20
-            acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
+            delegate: MouseArea {
+                anchors.verticalCenter: parent.verticalCenter
+                id: trayItem
+                required property SystemTrayItem modelData
 
-            QsMenuAnchor {
-                id: menuAnchor
-                menu: trayItem.modelData.menu
-                anchor.window: trayItem.QsWindow.window
-                anchor.adjustment: PopupAdjustment.Flip
-                anchor.onAnchoring: {
-                    const win = trayItem.QsWindow.window;
-                    anchor.rect = win.contentItem.mapFromItem(trayItem, 0, trayItem.height, trayItem.width, 0);
+                implicitWidth: 20
+                implicitHeight: 20
+                acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
+
+                QsMenuAnchor {
+                    id: menuAnchor
+                    menu: trayItem.modelData.menu
+                    anchor.window: trayItem.QsWindow.window
+                    anchor.adjustment: PopupAdjustment.Flip
+                    anchor.onAnchoring: {
+                        const win = trayItem.QsWindow.window;
+                        anchor.rect = win.contentItem.mapFromItem(trayItem, 0, trayItem.height, trayItem.width, 0);
+                    }
                 }
-            }
 
-            onClicked: mouse => {
-                console.log("clicked", modelData.id, "onlyMenu:", modelData.onlyMenu, "hasMenu:", modelData.hasMenu);
-                if (mouse.button === Qt.MiddleButton) {
-                    modelData.secondaryActivate();
-                } else if (mouse.button === Qt.LeftButton && modelData.hasMenu) {
-                    menuAnchor.open();
-                } else if (modelData.onlyMenu) {
-                    modelData.activate();
+                onClicked: mouse => {
+                    console.log("clicked", modelData.id, "onlyMenu:", modelData.onlyMenu, "hasMenu:", modelData.hasMenu);
+                    if (mouse.button === Qt.MiddleButton) {
+                        modelData.secondaryActivate();
+                    } else if (mouse.button === Qt.LeftButton && modelData.hasMenu) {
+                        menuAnchor.open();
+                    } else if (modelData.onlyMenu) {
+                        modelData.activate();
+                    }
                 }
-            }
 
-            IconImage {
-                anchors.fill: parent
-                source: trayItem.modelData.icon
+                IconImage {
+                    anchors.fill: parent
+                    source: trayItem.modelData.icon
+                }
             }
         }
     }

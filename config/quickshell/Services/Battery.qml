@@ -19,7 +19,7 @@ Rectangle {
             const bat = UPower.displayDevice
             if (!bat || !bat.isLaptopBattery)
                 return "No battery"
-            return Math.round(bat.percentage * 100) + "%"
+            return "\uf241 \u202F" + Math.round(bat.percentage * 100) + "%"
                 + (bat.state === UPowerDeviceState.Charging ? " (charging)" : "")
         }
     }

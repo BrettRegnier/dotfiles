@@ -1,25 +1,30 @@
 import QtQuick
 import qs.Services
 
-Item {
+Rectangle {
+    color: "#00000000"
+
     readonly property var margin: 10
-    // color: "blue"
-    Sound {
-        id: sound
+    SysTray {
+        id: sys_tray
+        anchors.right: parent.right
     }
 
     Network {
         id: network
-        x: sound.width + margin
+        anchors.right: sys_tray.left 
+        anchors.rightMargin: margin
     }
 
     Battery {
-        x: network.x + network.width + margin
+        id: battery
+        anchors.right: network.left 
+        anchors.rightMargin: margin
     }
 
-
-    SysTray {
-    
+    Sound {
+        id: sound
+        anchors.right: battery.left 
+        anchors.rightMargin: margin
     }
-
 }
